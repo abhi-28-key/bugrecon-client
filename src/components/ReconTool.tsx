@@ -58,7 +58,7 @@ export default function ReconTool({ isDarkTheme }: ReconToolProps) {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:8000${endpoint}`, {
+      const res = await fetch(`https://bugrecon-backend-python.onrender.com${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ domain }),
@@ -81,7 +81,7 @@ export default function ReconTool({ isDarkTheme }: ReconToolProps) {
     setWhoisError(null);
     setWhoisResult(null);
     try {
-      const resp = await axios.post<{ result: any }>('http://localhost:8000/api/whois', { domain });
+      const resp = await axios.post<{ result: any }>('https://bugrecon-backend-python.onrender.com/api/whois', { domain });
       setWhoisResult(resp.data.result);
     } catch (err: any) {
       // Log the full error for debugging
